@@ -1,0 +1,17 @@
+<div class="img-thumbnail" style="background-color:#1DA1F2;">
+   
+    <div *ngIf="isShowInputField" >
+        <form (submit)="submit()" [formGroup]="tweetPostForm">
+            <textarea formControlName="message" type="text" class="form-control mt-2" rows="6" placeholder="Message" style="height: 372px; "></textarea>
+            
+            <input type="submit" value="Post"  class="btn btn-primary  col-sm-5  mt-2 mb-2 pst"/>
+          </form>
+          <mat-progress-bar *ngIf="displayLoading" class="mt-3" mode="indeterminate"></mat-progress-bar>
+          <div *ngIf="displayError" class="alert alert-danger mt-3">Oops Can't Post</div>
+          
+    </div>
+    <div *ngIf="isShowPostSuccess">
+        <button (click)="newPostcancal()" class="alert alert-success col-sm-12 mt-3">Posted created</button>
+        
+    </div>
+</div>

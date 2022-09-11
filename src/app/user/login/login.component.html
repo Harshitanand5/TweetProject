@@ -1,0 +1,24 @@
+
+
+<div class="container">
+  <div *ngIf="displayError" class="alert alert-danger mt-1">wrong credentials</div>
+  <div class="row" align-items: center>
+    
+    <div class="">
+      
+      <div class="img-thumbnail" style="background-color:#1DA1F2;">
+
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Italian Trulli">
+        <form (submit)="submit()" [formGroup]="loginForm">
+          <input formControlName="userName" type="text" class="form-control mt-2" placeholder="UserName"/>
+          <input formControlName="password" type="password" class="form-control mt-2 " placeholder="Password"/>
+          <input type="submit" value="Login"  class="btn btn-primary  col-sm-3  mt-2 sub" aria-pressed="true"/>
+          
+        </form>
+        <a routerLink="/register" style="text-align: center;"><button type="button" class="btn btn-link mt-3 rg" >Create New Account</button></a>
+        <br>
+        
+        <a routerLink="/forgetpassword"><button type="button" class="btn btn-link  fg">Forgot Password ?</button></a>
+      </div>
+    </div>

@@ -1,0 +1,11 @@
+<div class="header">
+    <a href="#default" class="logo">
+        TweetApp
+    </a>
+    <div class="header-right">
+        
+        <button *ngIf="this._userservice.getIsLoggedIn()" (click)="onLogout()" class="btn btn-link ">Logout</button>
+       
+         
+    </div>
+</div>
