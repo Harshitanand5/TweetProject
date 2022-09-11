@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forget-password',
@@ -32,9 +33,25 @@ export class ForgetPasswordComponent implements OnInit {
         this.ForgotPasswordForm.value.mobilePhone        
         ).subscribe(
         (result) => {
-          this._router.navigateByUrl('login');
+          
           this.displayLoading = false;
-          alert(result.password);
+          //alert(result.password);
+          //Swal.fire(result.password )
+
+          Swal.fire({
+            title: result.password,
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: 'Ok',
+            
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              this._router.navigateByUrl('login');
+            } 
+          })
+
+         
         },
         (error) => {
           this.displayError = true;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -72,17 +73,26 @@ export class RegisterComponent implements OnInit {
         );
       }
       else{
-        alert('Confirm Password must match');
+        //alert('Confirm Password must match');
+        Swal.fire(
+          'Confirm Password must match'
+        )
         this.displayLoading = false;
       }
     }
     else {
-      alert('Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character');
+     // alert('Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character');
+     Swal.fire(
+      'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character'
+    )
       this.displayLoading = false;
     }
     }
     else{
-      alert('Enter valid Phone Number (10 digit)');
+      //alert('Enter valid Phone Number (10 digit)');
+      Swal.fire(
+        'Enter valid Phone Number (10 digit)'
+      )
       this.displayLoading = false;
     }
   }

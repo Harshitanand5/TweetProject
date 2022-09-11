@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TweetService } from 'src/app/service/tweet.service';
 import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post-tweet',
@@ -43,9 +44,11 @@ export class PostTweetComponent implements OnInit {
         async (result:any) => {
           this.displayLoading = false;
           this.isShowPostSuccess = true;
-          this.isShowInputField = false;
+          this.isShowInputField = true;
           this._userservice.updateIsReloadTweet(true);
-
+          Swal.fire(
+            'Tweet Posted'
+          )
           //below will redirect to home and reload tweets -- code will be refined
           await new Promise(f => setTimeout(f, 1000));
           this._router.navigateByUrl('login');
